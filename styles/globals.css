@@ -1,3 +1,68 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#FDF2FF];
+  }
+}
+
+@layer utilities {
+  .decor {
+    @apply absolute left-0 -top-[550px] h-[1000px] w-[560px] rotate-45 rounded-[140px] bg-[#fff7e2];
+  }
+
+  .grid-header {
+    @apply grid gap-[85px];
+    grid-template-columns:
+      minmax(min-content, 220px)
+      minmax(min-content, 575px)
+      minmax(min-content, 400px);
+  }
+
+  .grid-main {
+    @apply grid gap-[85px];
+    grid-template-columns:
+      minmax(min-content, 220px)
+      minmax(min-content, 1fr);
+  }
+
+  .grid-section {
+    @apply grid gap-[60px];
+    grid-template-columns:
+      minmax(min-content, 660px)
+      minmax(min-content, 1fr);
+  }
+
+  .shadow-nav {
+    box-shadow: 0px 34px 34px rgba(13, 46, 97, 0.05);
+  }
+
+  .break-word {
+    word-break: break-word;
+  }
+
+  .custom-scroll::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  .custom-scroll-big::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .custom-scroll-big::-webkit-scrollbar-thumb,
+  .custom-scroll::-webkit-scrollbar-thumb {
+    background-color: #00000033;
+    border-radius: 50px;
+  }
+
+  .placeholder::before {
+    content: attr(placeholder);
+    opacity: 0.6;
+    font-style: italic;
+    display: block;
+    position: absolute;
+    cursor: text;
+  }
+}
