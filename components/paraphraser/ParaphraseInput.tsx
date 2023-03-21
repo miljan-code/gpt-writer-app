@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef, useEffect, useContext } from 'react';
-import axios from 'axios';
 import { ParaphraseContext } from '@/context/ParaphraseContext';
 import { preventRichText } from '@/utils/helpers';
 import { paraphrasingModeOptions } from '@/constants/paraphraser-constants';
@@ -32,10 +31,15 @@ const ParaphraseInput = () => {
     setIsLoading(true);
 
     try {
-      const { data } = await axios.post('/api/paraphrase-it', {
-        prompt: inputText,
-        style: paraMode,
+      const res = await fetch('/api/paraphrase-it', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ prompt: inputText }),
       });
+
+      const data = await res.json();
 
       setParaphrased(data.response);
     } catch (err) {
@@ -46,7 +50,7 @@ const ParaphraseInput = () => {
   };
 
   return (
-    <div className="mb-6 rounded-2xl bg-[#ECF9FF] text-sm">
+    <div className="mb-12 rounded-2xl bg-[#ECF9FF] text-sm">
       <div className="flex items-center gap-3 py-2 px-4">
         <span>Choose style:</span>
         <select
@@ -65,7 +69,7 @@ const ParaphraseInput = () => {
         ref={inputRef}
         className={`break-word custom-scroll ${
           !inputText.length && 'placeholder'
-        } relative h-80 overflow-y-auto whitespace-pre-wrap px-4 pb-2 pt-4 focus:outline-none`}
+        } relative h-[283px] overflow-y-auto whitespace-pre-wrap px-4 pb-2 pt-4 focus:outline-none`}
         contentEditable={true}
         onKeyUp={() => setInputText(inputRef.current?.innerText!)}
         placeholder="Write something cool..."

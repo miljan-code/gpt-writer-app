@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef, useEffect, useContext } from 'react';
-import axios from 'axios';
 import { SummarizeContext } from '@/context/SummarizeContext';
 import { preventRichText } from '@/utils/helpers';
 import { RxSymbol } from 'react-icons/rx';
@@ -29,9 +28,15 @@ const SummarizeInput = () => {
     setIsLoading(true);
 
     try {
-      const { data } = await axios.post('/api/summarize-it', {
-        prompt: inputText,
+      const res = await fetch('/api/summarize-it', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ prompt: inputText }),
       });
+
+      const data = await res.json();
 
       setSummarized(data.response);
     } catch (err) {

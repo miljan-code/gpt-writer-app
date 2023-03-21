@@ -1,11 +1,11 @@
-import { Title } from '@/components';
-import { ArticleInput, ArticleOutput } from '@/components/article-writer';
 import { ArticleProvider } from '@/context/ArticleContext';
+import { Title, Aside } from '@/components';
+import { ArticleInput, ArticleOutput } from '@/components/article-writer';
 
 export default function GrammarPage() {
   return (
     <ArticleProvider>
-      <section className="grid-section">
+      <section className="grid-section h-full">
         <div>
           <Title
             label="Article Writer"
@@ -14,7 +14,7 @@ export default function GrammarPage() {
           <ArticleInput />
           <ArticleOutput />
         </div>
-        <div className="">Hey</div>
+        <Aside />
       </section>
     </ArticleProvider>
   );

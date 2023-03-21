@@ -1,6 +1,6 @@
-import { Title } from '@/components';
-import { SummarizeInput, SummarizeOutput } from '@/components/text-summarizer';
 import { SummarizeProvider } from '@/context/SummarizeContext';
+import { Title, Aside } from '@/components';
+import { SummarizeInput, SummarizeOutput } from '@/components/text-summarizer';
 
 export default function GrammarPage() {
   return (
@@ -14,7 +14,7 @@ export default function GrammarPage() {
           <SummarizeInput />
           <SummarizeOutput />
         </div>
-        <div className="">Hey</div>
+        <Aside />
       </section>
     </SummarizeProvider>
   );

@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-    <header className="grid-header relative z-10 mb-14">
+    <header className="relative z-10 mb-14">
       <div className="flex flex-col gap-1">
         <Link href="/" className="flex items-center gap-3">
           <img src="/logo.svg" alt="GPT Writer Logo" />

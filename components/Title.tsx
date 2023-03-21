@@ -5,7 +5,7 @@ type Props = {
 
 const Title = ({ label, sublabel }: Props) => {
   return (
-    <div className="mb-10">
+    <div className="mb-6">
       <h2 className="text-[28px] font-extrabold leading-8 text-dark">
         {label}
       </h2>

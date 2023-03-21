@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef, useContext } from 'react';
-import axios from 'axios';
 import { ArticleContext } from '@/context/ArticleContext';
 import { RxSymbol } from 'react-icons/rx';
 
@@ -24,9 +23,15 @@ const ArticleInput = () => {
     setIsLoading(true);
 
     try {
-      const { data } = await axios.post('/api/article', {
-        prompt: topic,
+      const res = await fetch('/api/article', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ prompt: topic }),
       });
+
+      const data = await res.json();
 
       setArticle(data.response);
     } catch (err) {
@@ -45,7 +50,7 @@ const ArticleInput = () => {
         <input
           ref={topicRef}
           type="text"
-          className="w-3/4 rounded-3xl bg-[#fff7e2] px-2 py-1 pl-5 text-sm focus:outline-none"
+          className="w-3/4 rounded-3xl px-2 py-1 pl-5 text-sm focus:outline-none"
           placeholder="RPG Video games"
         />
         <button

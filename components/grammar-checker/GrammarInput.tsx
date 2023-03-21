@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useMemo, useEffect, useContext } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { GrammarContext } from '@/context/GrammarContext';
 import { preventRichText, putCursorAtTheEndOf } from '@/utils/helpers';
 import { RxSymbol } from 'react-icons/rx';
@@ -59,9 +59,15 @@ const GrammarInput = () => {
     setIsChecking(true);
 
     try {
-      const { data } = await axios.post('/api/grammar-errors', {
-        prompt: inputText,
+      const res = await fetch('/api/grammar-errors', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ prompt: inputText }),
       });
+
+      const data = await res.json();
 
       setErrors(data.response.words);
     } catch (err) {
@@ -77,9 +83,15 @@ const GrammarInput = () => {
     setIsLoading(true);
 
     try {
-      const { data } = await axios.post('/api/correct-text', {
-        prompt: inputText,
+      const res = await fetch('/api/correct-text', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ prompt: inputText }),
       });
+
+      const data = await res.json();
 
       // FIXME: output sometimes has quotes ""
       setOutputText(data.response);
@@ -100,7 +112,7 @@ const GrammarInput = () => {
   };
 
   return (
-    <div className="mb-6 rounded-2xl bg-[#ECF9FF] text-sm">
+    <div className="mb-12 rounded-2xl bg-[#ECF9FF] text-sm">
       <div
         ref={inputRef}
         className={`break-word custom-scroll ${

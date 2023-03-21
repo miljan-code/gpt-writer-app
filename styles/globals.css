@@ -22,21 +22,25 @@
   }
 
   .grid-main {
-    @apply grid gap-[85px];
+    @apply grid gap-[60px];
     grid-template-columns:
       minmax(min-content, 220px)
       minmax(min-content, 1fr);
   }
 
   .grid-section {
-    @apply grid gap-[60px];
+    @apply grid gap-[55px];
     grid-template-columns:
-      minmax(min-content, 660px)
+      minmax(min-content, 700px)
       minmax(min-content, 1fr);
   }
 
   .shadow-nav {
     box-shadow: 0px 34px 34px rgba(13, 46, 97, 0.05);
+  }
+
+  .shadow-aside {
+    box-shadow: 0px 17px 17px rgba(13, 46, 97, 0.03);
   }
 
   .break-word {

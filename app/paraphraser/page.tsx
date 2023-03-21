@@ -1,6 +1,6 @@
-import { Title } from '@/components';
-import { ParaphraseInput, ParaphraseOutput } from '@/components/paraphraser';
 import { ParaphraseProvider } from '@/context/ParaphraseContext';
+import { Title, Aside } from '@/components';
+import { ParaphraseInput, ParaphraseOutput } from '@/components/paraphraser';
 
 export default function GrammarPage() {
   return (
@@ -11,7 +11,7 @@ export default function GrammarPage() {
           <ParaphraseInput />
           <ParaphraseOutput />
         </div>
-        <div className="">Hey</div>
+        <Aside />
       </section>
     </ParaphraseProvider>
   );

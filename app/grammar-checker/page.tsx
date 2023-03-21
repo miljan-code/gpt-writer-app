@@ -1,4 +1,5 @@
-import { Title } from '@/components';
+import { Title } from '@/components/';
+import { Aside } from '@/components/';
 import { GrammarInput, GrammarOutput } from '@/components/grammar-checker';
 import { GrammarProvider } from '@/context/GrammarContext';
 
@@ -14,7 +15,7 @@ export default function GrammarPage() {
           <GrammarInput />
           <GrammarOutput />
         </div>
-        <div className="">Hey</div>
+        <Aside />
       </section>
     </GrammarProvider>
   );
