@@ -1,5 +1,5 @@
 import { ArticleProvider } from '@/context/ArticleContext';
-import { Title, Aside } from '@/components';
+import { Title, Aside, Notification } from '@/components';
 import { ArticleInput, ArticleOutput } from '@/components/article-writer';
 
 export default function GrammarPage() {
@@ -13,6 +13,7 @@ export default function GrammarPage() {
           />
           <ArticleInput />
           <ArticleOutput />
+          <Notification text="In free mode article length is limited to three paragraphs" />
         </div>
         <Aside />
       </section>

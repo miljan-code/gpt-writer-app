@@ -47,7 +47,7 @@ const SummarizeInput = () => {
   };
 
   return (
-    <div className="mb-6 rounded-2xl bg-[#ECF9FF] text-sm">
+    <div className="mb-12 rounded-2xl bg-[#ECF9FF] text-sm">
       <div
         ref={inputRef}
         className={`break-word custom-scroll ${

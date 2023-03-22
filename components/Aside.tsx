@@ -25,7 +25,7 @@ const Aside = () => {
         />
       </div>
       <Title
-        label="Try Our Products"
+        label="Other Products"
         sublabel="Does AI generated images sound interesting to you?"
       />
       <Product />

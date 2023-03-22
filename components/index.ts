@@ -6,6 +6,7 @@ import CopyButton from './CopyButton';
 import HowToItem from './HowToItem';
 import Aside from './Aside';
 import Product from './Product';
+import Notification from './Notification';
 
 export {
   Header,
@@ -16,4 +17,5 @@ export {
   HowToItem,
   Aside,
   Product,
+  Notification,
 };

@@ -32,18 +32,18 @@ const Navigation = () => {
         <p className="text-sm font-medium">Paraphraser</p>
       </Link>
       <Link
-        href="/article-writer"
-        className="flex items-center gap-5 transition-all hover:text-[#8F12FE]"
-      >
-        <RxPencil2 className="text-lg" />
-        <p className="text-sm font-medium">Article Writer</p>
-      </Link>
-      <Link
         href="/text-summarizer"
         className="flex items-center gap-5 transition-all hover:text-[#8F12FE]"
       >
         <RxReader className="text-lg" />
         <p className="text-sm font-medium">Text Summarizer</p>
+      </Link>
+      <Link
+        href="/article-writer"
+        className="flex items-center gap-5 transition-all hover:text-[#8F12FE]"
+      >
+        <RxPencil2 className="text-lg" />
+        <p className="text-sm font-medium">Article Writer</p>
       </Link>
     </nav>
   );
