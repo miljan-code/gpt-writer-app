@@ -1,4 +1,4 @@
-import { Sidebar } from '@/components';
+import { MobileBar, Sidebar } from '@/components';
 import { Manrope } from 'next/font/google';
 import '@/styles/globals.css';
 
@@ -15,10 +15,11 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body className={manrope.className}>
-        <div className="relative mx-auto my-6 h-[920px] w-full max-w-[1440px] overflow-hidden rounded-3xl bg-white py-[34px] px-[48px] shadow-sm">
+        <div className="relative mx-auto h-[920px] w-full max-w-[1440px] bg-white py-[34px] px-[34px] lg:px-[48px] 2xl:my-6 2xl:overflow-hidden 2xl:rounded-3xl 2xl:shadow-sm">
           <div className="decor" />
-          <main className="grid-main relative z-10 h-full">
+          <main className="md:grid-main relative z-10 h-full">
             <Sidebar />
+            <MobileBar />
             {children}
           </main>
         </div>

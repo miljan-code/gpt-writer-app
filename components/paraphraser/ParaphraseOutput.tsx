@@ -17,7 +17,7 @@ const ParaphraserOutput = () => {
       >
         {paraphrased}
       </div>
-      <div className="flex items-center justify-end rounded-b-2xl bg-[#fff7e2] py-2 px-4">
+      <div className="mb-12 flex items-center justify-end rounded-b-2xl bg-[#fff7e2] py-2 px-4 md:mb-0">
         <CopyButton isDisabled={!paraphrased} ref={outputRef} />
       </div>
     </div>

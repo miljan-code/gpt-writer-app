@@ -4,13 +4,13 @@
 
 @layer base {
   body {
-    @apply bg-[#FDF2FF];
+    @apply bg-white 2xl:bg-[#FDF2FF];
   }
 }
 
 @layer utilities {
   .decor {
-    @apply absolute left-0 -top-[550px] h-[1000px] w-[560px] rotate-45 rounded-[140px] bg-[#fff7e2];
+    @apply absolute left-0 -top-[550px] hidden h-[1000px] w-[560px] rotate-45 rounded-[140px] bg-[#fff7e2] md:block;
   }
 
   .grid-header {
@@ -22,14 +22,14 @@
   }
 
   .grid-main {
-    @apply grid gap-[60px];
+    @apply grid gap-[40px] lg:gap-[60px];
     grid-template-columns:
       minmax(min-content, 220px)
       minmax(min-content, 1fr);
   }
 
   .grid-section {
-    @apply grid gap-[55px];
+    @apply grid gap-0 lg:gap-[55px];
     grid-template-columns:
       minmax(min-content, 700px)
       minmax(min-content, 1fr);

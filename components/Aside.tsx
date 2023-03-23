@@ -2,7 +2,7 @@ import { Title, HowToItem, Product } from '.';
 
 const Aside = () => {
   return (
-    <aside className="relative flex flex-col">
+    <aside className="relative hidden flex-col lg:flex">
       <Title label="How It Works" sublabel="Easy as pie" />
       <div className="mb-12 flex flex-col gap-4">
         <HowToItem
@@ -32,7 +32,7 @@ const Aside = () => {
       <img
         src="/illustration.png"
         alt="Illustration"
-        className="absolute -bottom-24 right-32 w-32 rotate-90"
+        className="absolute -bottom-24 right-32 hidden w-32 rotate-90 xl:inline-block"
       />
     </aside>
   );

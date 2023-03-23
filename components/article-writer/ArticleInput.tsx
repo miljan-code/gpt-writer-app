@@ -57,7 +57,7 @@ const ArticleInput = () => {
           onClick={getArticle}
           className="ml-auto rounded-full bg-[#8F12FE] py-1 px-3 font-semibold text-white"
         >
-          Start writing
+          Submit
         </button>
         {isLoading && <RxSymbol className="animate-spin" />}
       </form>

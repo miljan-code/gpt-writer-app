@@ -44,8 +44,10 @@ const HowToItem = ({ label, icon, i, color }: Props) => {
       >
         <img src={icon} className="h-10 w-10" />
       </div>
-      <h3 className="w-2/4 text-sm font-medium">{label}</h3>
-      <span className={`text-5xl font-extrabold ${colors.text}`}>{i}.</span>
+      <h3 className="w-[200px] text-sm font-medium 2xl:w-2/4">{label}</h3>
+      <span className={`text-xl font-extrabold 2xl:text-5xl ${colors.text}`}>
+        {i}.
+      </span>
     </div>
   );
 };

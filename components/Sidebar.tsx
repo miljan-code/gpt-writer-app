@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const Sidebar = () => {
   return (
-    <aside className="flex flex-col">
+    <aside className="hidden flex-col md:flex">
       <Header />
       <div className="mb-14 flex items-center gap-4">
         <div className="flex h-[50px] w-[50px] cursor-pointer items-center justify-center rounded-full bg-[#B347D833]">
@@ -23,7 +23,7 @@ const Sidebar = () => {
           <span className="text-xs text-dark opacity-60">Free trial</span>
         </Link>
       </div>
-      <div className="relative mt-auto rounded-3xl bg-[#fdf2ff] pt-6 pl-4 pb-10">
+      <div className="relative rounded-3xl bg-[#fdf2ff] pt-6 pl-4 pb-10 xl:mt-auto">
         <h3 className="mb-2 max-w-[101px] text-xl font-extrabold text-[#503094]">
           Upgrade to Pro
         </h3>

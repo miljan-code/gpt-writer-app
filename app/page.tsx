@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <section className="grid-section h-full">
-        <div>
+        <div className="mb-12">
           <Title
             label="Our Services"
             sublabel="Tired of writing articles? We got your back!"
@@ -52,7 +52,7 @@ export default function Home() {
             label="Article Writer"
             link="/article-writer"
           />
-          <p>
+          <p className="mb-12 md:mb-0">
             The AI-powered article writing application generates high-quality,
             original content on any given topic, using advanced natural language
             processing algorithms. It's a valuable tool for content creators,
