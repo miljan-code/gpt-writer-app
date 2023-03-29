@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, useRef, useMemo, useEffect, useContext } from 'react';
-// import axios from 'axios';
 import { GrammarContext } from '@/context/GrammarContext';
-import { preventRichText, putCursorAtTheEndOf } from '@/utils/helpers';
+import { putCursorAtTheEndOf } from '@/utils/helpers';
 import { RxSymbol } from 'react-icons/rx';
+import { usePreventRichText } from '@/hooks/usePreventRichText';
 
 const MIN_LENGTH = 5;
 
@@ -24,19 +24,12 @@ const GrammarInput = () => {
     [inputText]
   );
 
-  useEffect(() => {
-    inputRef.current!.spellcheck = false;
-
-    inputRef.current?.addEventListener('paste', preventRichText);
-
-    return () =>
-      inputRef.current?.removeEventListener('paste', preventRichText);
-  }, []);
+  usePreventRichText(inputRef);
 
   useEffect(() => {
     const currentText = inputRef.current!.innerHTML.split(' ');
 
-    // FIXME: <br> appears in the beggining sometimes
+    // FIXME: strange <br> appears in the beggining sometimes
     const markedWords = currentText?.map(word => {
       if (errors?.includes(word)) {
         return `<span class="text-red-700 font-bold">${word}</span>`;
@@ -51,7 +44,7 @@ const GrammarInput = () => {
 
     // FIXME: preserve cursor position
     putCursorAtTheEndOf(inputRef);
-  }, [errors]);
+  }, [JSON.stringify(errors)]);
 
   const checkForErrors = async () => {
     if (inputText.trim().length < MIN_LENGTH) return;

@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useRef, useEffect, useContext } from 'react';
+import { useState, useRef, useContext } from 'react';
 import { ParaphraseContext } from '@/context/ParaphraseContext';
-import { preventRichText } from '@/utils/helpers';
 import { paraphrasingModeOptions } from '@/constants/paraphraser-constants';
 import { RxSymbol } from 'react-icons/rx';
+import { usePreventRichText } from '@/hooks/usePreventRichText';
 
 const ParaphraseInput = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -15,15 +15,7 @@ const ParaphraseInput = () => {
 
   const inputRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    inputRef.current!.spellcheck = false;
-
-    inputRef.current?.addEventListener('paste', preventRichText);
-
-    // TODO: Refactor, its the same code on all pages
-    return () =>
-      inputRef.current?.removeEventListener('paste', preventRichText);
-  }, []);
+  usePreventRichText(inputRef);
 
   const paraphraseIt = async () => {
     if (!inputText.trim().length) return;

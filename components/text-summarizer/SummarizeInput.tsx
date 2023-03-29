@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useRef, useEffect, useContext } from 'react';
+import { useState, useRef, useContext } from 'react';
 import { SummarizeContext } from '@/context/SummarizeContext';
-import { preventRichText } from '@/utils/helpers';
 import { RxSymbol } from 'react-icons/rx';
+import { usePreventRichText } from '@/hooks/usePreventRichText';
 
 const SummarizeInput = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,14 +13,7 @@ const SummarizeInput = () => {
 
   const inputRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    inputRef.current!.spellcheck = false;
-
-    inputRef.current?.addEventListener('paste', preventRichText);
-
-    return () =>
-      inputRef.current?.removeEventListener('paste', preventRichText);
-  }, []);
+  usePreventRichText(inputRef);
 
   const summarizeIt = async () => {
     if (inputText.trim().length === 0) return;

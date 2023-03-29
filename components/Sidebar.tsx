@@ -23,7 +23,7 @@ const Sidebar = () => {
           <span className="text-xs text-dark opacity-60">Free trial</span>
         </Link>
       </div>
-      <div className="relative rounded-3xl bg-[#fdf2ff] pt-6 pl-4 pb-10 xl:mt-auto">
+      <div className="relative rounded-3xl bg-[#fdf2ff] pb-10 pt-6 pl-4 xl:mt-auto">
         <h3 className="mb-2 max-w-[101px] text-xl font-extrabold text-[#503094]">
           Upgrade to Pro
         </h3>

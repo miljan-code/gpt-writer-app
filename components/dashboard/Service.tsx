@@ -9,7 +9,7 @@ type Props = {
 
 const Service = ({ Icon, label, link }: Props) => {
   return (
-    <div className="mb-4 flex items-center gap-5 rounded-3xl bg-[#fdf2ff] py-3 px-5">
+    <div className="mb-3 flex items-center gap-5 rounded-3xl bg-[#fdf2ff] py-2 px-5">
       <div className="shrink-0 rounded-xl bg-[#D56C2B22] p-2">
         <Icon className="text-3xl" />
       </div>
