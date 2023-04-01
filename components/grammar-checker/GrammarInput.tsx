@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useMemo, useEffect, useContext } from 'react';
+import { useState, useRef, useMemo, useContext } from 'react';
 import { GrammarContext } from '@/context/GrammarContext';
 import { putCursorAtTheEndOf } from '@/utils/helpers';
 import { RxSymbol } from 'react-icons/rx';
@@ -19,20 +19,20 @@ const GrammarInput = () => {
 
   const inputRef = useRef<HTMLDivElement>(null);
 
+  usePreventRichText(inputRef);
+
   const wordsCount = useMemo(
     () => inputText.split(' ').filter(i => i !== '').length,
     [inputText]
   );
 
-  usePreventRichText(inputRef);
-
-  useEffect(() => {
+  const editText = (errors: string[]) => {
     const currentText = inputRef.current!.innerHTML.split(' ');
 
     // FIXME: strange <br> appears in the beggining sometimes
     const markedWords = currentText?.map(word => {
       if (errors?.includes(word)) {
-        return `<span class="text-red-700 font-bold">${word}</span>`;
+        return `<span class="text-red-700">${word}</span>`;
       } else {
         return word;
       }
@@ -44,7 +44,7 @@ const GrammarInput = () => {
 
     // FIXME: preserve cursor position
     putCursorAtTheEndOf(inputRef);
-  }, [JSON.stringify(errors)]);
+  };
 
   const checkForErrors = async () => {
     if (inputText.trim().length < MIN_LENGTH) return;
@@ -61,10 +61,14 @@ const GrammarInput = () => {
       });
 
       const data = await res.json();
+      const errorArr: string[] = data.response.words;
+
+      editText(errorArr);
 
       setErrors(data.response.words);
     } catch (err) {
       setErrors([]);
+      console.log(err);
     }
 
     setIsChecking(false);
