@@ -12,7 +12,7 @@ Clone this repo
 git clone https://github.com/miljan-code/gpt-writer-app.git
 ```
 
-Install neccessery dependencies
+Install necessary dependencies
 
 ```bash
 npm install
